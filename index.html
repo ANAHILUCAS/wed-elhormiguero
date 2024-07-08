@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Hormiguero</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            position: relative;
+            text-align: center;
+            padding-top: 56.25%; /* Proporción 16:9 para imágenes widescreen */
+            background-image: url("C:/Users/anahi/OneDrive/Escritorio/pagina wed practica/El Hormiguero.jpg");
+            background-size: contain; /* Asegura que toda la imagen sea visible */
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 0.5rem 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+            bottom: -2px;
+            left: 0;
+            transition: width 0.3s;
+            opacity: 0;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+            opacity: 1;
+        }
+
+        section {
+            padding: 2rem;
+            margin: 1rem;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            color: #333;
+        }
+
+        section#about {
+            background-image: url("C:/Users/anahi/OneDrive/Escritorio/pagina wed practica/imagen-about.jpg");
+        }
+
+        section#services {
+            background-image: url("C:/Users/anahi/OneDrive/Escritorio/pagina wed practica/Diseño sin título.jpg");
+        }
+
+        section#contact {
+            background-image: url("C:/Users/anahi/OneDrive/Escritorio/pagina wed practica/imagen-contact.jpg");
+        }
+
+        section#donate {
+            background-image: url("C:/Users/anahi/OneDrive/Escritorio/pagina wed practica/imagen-donate.jpg");
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section#gallery {
+            background-image: url("C:/Users/anahi/OneDrive/Escritorio/pagina wed practica/imagen-gallery.jpg");
+        }
+
+        section h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        section#services ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.1rem;
+        }
+
+        section#services ul li {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        section .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        section .imagen {
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        section .imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ajusta cómo la imagen se ajusta dentro de su contenedor */
+            transition: transform 0.3s ease;
+        }
+
+        section .imagen img:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: #45cfe4;
+            color: rgb(198, 198, 202);
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            margin-top: 1rem;
+        }
+
+        form input, form textarea {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        form button {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        .whatsapp-button {
+            background-color: #25d366;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            display: block;
+            width: fit-content;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #20c85c;
+        }
+
+        .donate-button {
+            background-color: #ff9800;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            display: inline-block;
+            font-size: 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-top: 20px;
+            width: fit-content;
+            transition: background-color 0.3s;
+        }
+
+        .donate-button:hover {
+            background-color: #f57c00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">Sobre Nosotros</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#donate">Donar</a></li>
+                <li><a href="#gallery">Galería</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>Sobre Nosotros</h2>
+        <p>En nuestro comedor, extendemos una mano amiga a quienes más lo necesitan. Cada día, preparamos viandas totalmente gratuitas para la comunidad. Nuestro ambiente es cálido y acogedor, y estamos comprometidos con la solidaridad y la compañía.</p>
+    </section>
+
+    <section id="services">
+        <h2>Servicios</h2>
+        <ul>
+            <li>Almuerzos diarios</li>
+            <li>Asistencia social</li>
+            <li>Programas educativos</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contacto</h2>
+        <form id="contact-form">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Enviar</button>
+            <a href="https://wa.me/1122334455" class="whatsapp-button">Contactar por WhatsApp</a>
+        </form>
+    </section>
+
+    <section id="donate">
+        <h2>Donar</h2>
+        <p>Tu apoyo es crucial para nuestra misión. Considera hacer una donación para ayudarnos a seguir proporcionando servicios esenciales.</p>
+        <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380849007283701902e38f6e90a57" target="_blank" class="donate-button">Donar Ahora a través de Mercado Pago</a>
+    </section>
+
+    <section id="gallery">
+        <h2>Galería</h2>
+        <div class="galeria">
+            <div class="imagen">
+                <img src="C:/Users/anahi/Downloads/WhatsApp Image 2024-05-15 at 15.00.00.jpeg" alt="Imagen 1">
+            </div>
+            <div class="imagen">
+                <img src="C:/Users/anahi/Downloads/WhatsApp Image 2024-05-17 at 18.07.53.jpeg" alt="Imagen 2">
+            </div>
+            <div class="imagen">
+                <img src="C:/Users/anahi/Downloads/8381339a-2327-4cc4-ad0c-ccaf69db214d.jpeg" alt="Imagen 3">
+            </div>
+            <div class="imagen">
+                <img src="C:/Users/anahi/Downloads/774ca9c5-2503-4977-91c0-fe42faf47861.jpeg" alt="Imagen 4">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2024 El Hormiguero. Todos los derechos reservados.
+    </footer>
+</body>
+</html>
